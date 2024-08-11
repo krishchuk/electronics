@@ -13,6 +13,13 @@ class AdminUser(admin.ModelAdmin):
         "street",
         "house",
     )
+    search_fields = (
+        'email',
+    )
+    list_filter = (
+        'country',
+        'city',
+    )
 
 
 @admin.register(Product)
@@ -22,6 +29,10 @@ class AdminUser(admin.ModelAdmin):
         "name",
         "model",
         "release_date",
+    )
+    search_fields = (
+        'name',
+        'model',
     )
 
 
@@ -35,4 +46,10 @@ class AdminUser(admin.ModelAdmin):
         "supplier",
         "debt",
         "create_time",
+    )
+    search_fields = (
+        'name',
+    )
+    list_filter = (
+        'type',
     )

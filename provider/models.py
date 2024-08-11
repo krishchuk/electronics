@@ -34,12 +34,12 @@ class Product(models.Model):
 
 class Provider(models.Model):
     TYPE = [
-        ('0', 'завод'),
-        ('1', 'розничная сеть'),
-        ('2', 'индивидуальный предприниматель'),
+        ('завод', 'завод'),
+        ('розничная сеть', 'розничная сеть'),
+        ('ип', 'индивидуальный предприниматель'),
     ]
     name = models.CharField(max_length=150, verbose_name='название')
-    type = models.CharField(max_length=1, choices=TYPE, default=0, verbose_name='тип')
+    type = models.CharField(max_length=20, choices=TYPE, default='завод', verbose_name='тип')
     contact = models.OneToOneField(Contact, on_delete=models.CASCADE, primary_key=False, verbose_name='контакты')
     product = models.ManyToManyField(Product, verbose_name='продукты', **NULLABLE)
     supplier = models.ForeignKey('self', on_delete=models.SET_NULL, verbose_name='поставщик', **NULLABLE)

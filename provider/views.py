@@ -1,7 +1,8 @@
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics
-from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.permissions import IsAuthenticated
 
+from provider.filters import ProviderFilter
 from provider.models import Product, Provider
 from provider.paginators import CustomPagination
 from provider.serializers import ProductSerializer, ProviderSerializer, ProviderUpdateSerializer
@@ -25,9 +26,8 @@ class ProviderListAPIView(generics.ListAPIView):
     queryset = Provider.objects.all()
     pagination_class = CustomPagination
     permission_classes = [IsAuthenticated]
-    filter_backends = [SearchFilter, OrderingFilter]
-    search_fields = ['name', 'country']
-    ordering_fields = ['name', 'country']
+    filterset_class = ProviderFilter
+    filter_backends = (DjangoFilterBackend,)
 
 
 class ProviderDetailAPIView(generics.RetrieveAPIView):

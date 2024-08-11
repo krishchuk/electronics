@@ -1,4 +1,5 @@
 from rest_framework import generics
+from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.permissions import IsAuthenticated
 
 from provider.models import Product, Provider
@@ -24,6 +25,9 @@ class ProviderListAPIView(generics.ListAPIView):
     queryset = Provider.objects.all()
     pagination_class = CustomPagination
     permission_classes = [IsAuthenticated]
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields = ['name', 'country']
+    ordering_fields = ['name', 'country']
 
 
 class ProviderDetailAPIView(generics.RetrieveAPIView):

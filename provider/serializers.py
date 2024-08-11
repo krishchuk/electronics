@@ -1,8 +1,7 @@
 from rest_framework import serializers
-from rest_framework.fields import SerializerMethodField
+from rest_framework.fields import CharField
 
 from provider.models import Contact, Product, Provider
-from provider.validators import validate_provider
 
 
 class ContactSerializer(serializers.ModelSerializer):
@@ -24,6 +23,14 @@ class ProviderSerializer(serializers.ModelSerializer):
     product = ProductSerializer(product_queryset, many=True)
     contact_data = Contact.objects.all()
     contact = ContactSerializer(contact_data)
+
+    class Meta:
+        model = Provider
+        fields = "__all__"
+
+
+class ProviderUpdateSerializer(serializers.ModelSerializer):
+    debt = CharField(read_only=True)
 
     class Meta:
         model = Provider

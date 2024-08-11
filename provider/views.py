@@ -3,7 +3,7 @@ from rest_framework.permissions import IsAuthenticated
 
 from provider.models import Product, Provider
 from provider.paginators import CustomPagination
-from provider.serializers import ProductSerializer, ProviderSerializer
+from provider.serializers import ProductSerializer, ProviderSerializer, ProviderUpdateSerializer
 
 
 class ProductListAPIView(generics.ListAPIView):
@@ -33,7 +33,7 @@ class ProviderDetailAPIView(generics.RetrieveAPIView):
 
 
 class ProviderUpdateAPIView(generics.UpdateAPIView):
-    serializer_class = ProviderSerializer
+    serializer_class = ProviderUpdateSerializer
     queryset = Provider.objects.all()
     permission_classes = [IsAuthenticated]
 

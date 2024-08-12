@@ -1,0 +1,137 @@
+[
+{
+  "model": "provider.contact",
+  "pk": 1,
+  "fields": {
+    "email": "electromag@test.test",
+    "country": "Россия",
+    "city": "Москва",
+    "street": "Ленина",
+    "house": "15"
+  }
+},
+{
+  "model": "provider.contact",
+  "pk": 2,
+  "fields": {
+    "email": "elmashzavod@test.test",
+    "country": "Россия",
+    "city": "Санкт-Петербург",
+    "street": "Васильева",
+    "house": "124А"
+  }
+},
+{
+  "model": "provider.contact",
+  "pk": 3,
+  "fields": {
+    "email": "FedorovIP@test.test",
+    "country": "Россия",
+    "city": "Екатеринбург",
+    "street": "Луначарского",
+    "house": "56"
+  }
+},
+{
+  "model": "provider.contact",
+  "pk": 4,
+  "fields": {
+    "email": "DallasElectro@test.test",
+    "country": "USA",
+    "city": "Dallas",
+    "street": "Hampton Rd",
+    "house": "314"
+  }
+},
+{
+  "model": "provider.product",
+  "pk": 1,
+  "fields": {
+    "name": "Резистор",
+    "model": "МЛТ",
+    "release_date": "2000-08-11"
+  }
+},
+{
+  "model": "provider.product",
+  "pk": 2,
+  "fields": {
+    "name": "Резистор",
+    "model": "ОМЛТ",
+    "release_date": "2002-08-20"
+  }
+},
+{
+  "model": "provider.product",
+  "pk": 3,
+  "fields": {
+    "name": "Конденсатор",
+    "model": "К-75",
+    "release_date": "1982-05-01"
+  }
+},
+{
+  "model": "provider.provider",
+  "pk": 2,
+  "fields": {
+    "name": "ЭлМаш",
+    "type": "завод",
+    "contact": 2,
+    "supplier": null,
+    "debt": 0.0,
+    "create_time": "2024-08-11T17:02:08Z",
+    "product": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "provider.provider",
+  "pk": 3,
+  "fields": {
+    "name": "ЭлектроМаг",
+    "type": "розничная сеть",
+    "contact": 1,
+    "supplier": 2,
+    "debt": 500.5,
+    "create_time": "2024-08-11T17:02:37Z",
+    "product": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "provider.provider",
+  "pk": 4,
+  "fields": {
+    "name": "ИП Федоров",
+    "type": "ип",
+    "contact": 3,
+    "supplier": 3,
+    "debt": 0.0,
+    "create_time": "2024-08-11T18:53:52Z",
+    "product": [
+      1
+    ]
+  }
+},
+{
+  "model": "provider.provider",
+  "pk": 5,
+  "fields": {
+    "name": "DallasElectro",
+    "type": "розничная сеть",
+    "contact": 4,
+    "supplier": 2,
+    "debt": 0.0,
+    "create_time": "2024-08-11T20:34:57Z",
+    "product": [
+      1
+    ]
+  }
+}
+]

@@ -4,7 +4,7 @@ from provider.models import Contact, Product, Provider
 
 
 @admin.register(Contact)
-class AdminUser(admin.ModelAdmin):
+class AdminContact(admin.ModelAdmin):
     list_display = (
         "id",
         "email",
@@ -23,7 +23,7 @@ class AdminUser(admin.ModelAdmin):
 
 
 @admin.register(Product)
-class AdminUser(admin.ModelAdmin):
+class AdminProduct(admin.ModelAdmin):
     list_display = (
         "id",
         "name",
@@ -37,7 +37,7 @@ class AdminUser(admin.ModelAdmin):
 
 
 @admin.register(Provider)
-class AdminUser(admin.ModelAdmin):
+class AdminProvider(admin.ModelAdmin):
     list_display = (
         "id",
         "name",
@@ -53,3 +53,8 @@ class AdminUser(admin.ModelAdmin):
     list_filter = (
         'type',
     )
+    actions = ['knock_the_debts']
+
+    @admin.action(description="Обнулить задолженность перед поставщиком")
+    def knock_the_debts(self, request, queryset):
+        queryset.update(debt=0)
